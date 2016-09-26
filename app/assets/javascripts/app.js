@@ -20,3 +20,8 @@ angular.module('flapperNews', ['ui.router', 'templates'])
     $urlRouterProvider.otherwise('home');
   }
 ])
+
+.factory('posts', [
+  '$http',
+  function($http) {}
+]);
