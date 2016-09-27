@@ -6,8 +6,8 @@ angular.module('flapperNews', ['ui.router', 'templates'])
   function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: 'home/_home.html',
-        templateUrl: '/home.html',
+        url: '/home',
+        templateUrl: 'home/_home.html',
         controller: 'MainCtrl'
       })
       
@@ -20,8 +20,3 @@ angular.module('flapperNews', ['ui.router', 'templates'])
     $urlRouterProvider.otherwise('home');
   }
 ])
-
-.factory('posts', [
-  '$http',
-  function($http) {}
-]);

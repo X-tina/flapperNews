@@ -6,10 +6,10 @@ Rails.application.routes.draw do
       member do
         put '/upvote' => 'comments#upvote'
       end
+    end
 
-      member do
-        put '/upvote' => 'posts#upvote'
-      end
+    member do
+      put '/upvote' => 'posts#upvote'
     end
   end
 end
