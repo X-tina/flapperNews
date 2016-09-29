@@ -3,12 +3,6 @@ angular.module('flapperNews')
   '$scope',
   'posts',
   function($scope, posts){
-    resolve: {
-      postPromise: ['posts', function(posts){
-        return posts.getAll();
-      }]
-    };
-
     $scope.posts = posts.posts;
 
     $scope.addPost = function() {
@@ -24,13 +18,11 @@ angular.module('flapperNews')
     };
 
     $scope.incrementUpvotes = function(post) {
-      post.upvotes += 1;
+      posts.upvote(post);
     };
 
     $scope.decrementUpvotes = function(post) {
-      if(post.upvotes == 0) {
-        return;
-      } else { post.upvotes -= 1; }
+      posts.downvote(post);
     };
   }
 ]);
