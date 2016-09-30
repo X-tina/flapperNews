@@ -21,6 +21,15 @@ angular.module('flapperNews', ['ui.router', 'templates'])
         url: '/posts/{id}',
         templateUrl: 'posts/_posts.html',
         controller: 'PostsCtrl',
+        // Angular ui-router detects we are entering the posts state and will
+        // automatically query the server for the full post object,
+        // including comments. Only after the request has returned will the
+        // state finish loading.
+        resolve: {
+          post: ['$stateParams', 'posts', function($stateParams, posts) {
+            return posts.get($stateParams.id);
+          }]
+        }
       })
 
     $urlRouterProvider.otherwise('home');
